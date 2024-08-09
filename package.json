@@ -12,7 +12,7 @@
     "build:ts": "tsc",
     "watch:ts": "tsc -w",
     "dev": "npm run build:ts && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"npm:watch:ts\" \"npm:dev:start\"",
-    "dev:start": "fastify start --ignore-watch=.ts$ -w -l info -P dist/app.js"
+    "dev:start": "ts-node-dev --respawn --transpile-only src/server.ts"
   },
   "keywords": [],
   "author": "",
@@ -33,6 +33,7 @@
     "fastify-tsconfig": "^2.0.0",
     "ts-jest": "^29.2.4",
     "ts-node": "^10.4.0",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.2.2"
   }
 }
